@@ -1,11 +1,20 @@
 # ToDoApp-IFE2015
-这是一个离线的ToDo小应用，功能挺强大的：
+完成了百度IFE2015的 [task3](https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0003) ，实现了一个 ToDo 的单页应用，功能颇为强大。
+
+使用 localStorage 存储数据，JSON 模拟数据表，实现了分类和待办状态的改变，具有良好的交互体验。
 
 博文地址：https://alexzhong22c.github.io/2017/02/17/todo-app/
 
 在线预览：https://alexzhong22c.github.io/ToDoApp-IFE2015/
 
 ## 知识收获
+
+### 自适应高度布局
+
+分为上中下三栏，中间的一栏自适应浏览器高度。这是参考了横向的三栏布局来写的。
+
+- 中间一栏要在外面包一层div，如果外面本来就有一层div这种布局就非常合适。上栏和下栏用绝对定位即可。
+- 外面的这层div使用大面积的padding
 
 ### 在JavaScript 中创建HTML元素，用createElement()还是innerHTML好一点？
 
@@ -33,12 +42,24 @@
 - 根据W3Cschool的说法，**要求属性和属性值使用小写，属性值应该始终被包括在引号内。**
   - 用innerHTML来创建taskid=1和cateid=0这种属性好像没有用啊，因为浏览器自动解析成：taskid="1"和cateid="0"
 
+### ul里面能放除了li的其他标签吗？
+
+不能，`<ul>`里面只能放`<li>`。但是`<li>`里面可以放`<hx>`,`<p>`等标签。
+
+ul里面放其他标签，不光不符合语义，在IE7- 里面也会有问题：
+
+如果`<other>`标签前面有`<li>`标签，浏览器会认为`<other>`为`<li>`的子节点。
+
+### box-shadow
+
+是CSS3里面的属性。只要shadow不占太多px的地方，用一下还是非常好的
+
 ### JQuery
 
-- JQuery的not()方法非常好用，each()也非常好
+- JQuery的`not()`方法非常好用，`each()`也非常好
 
 
-- 在绑定事件 函数中的JQuery选择器在函数触发后才会去选择对象
+- 在绑定事件 函数中的 JQuery选择器 在函数触发后才会去选择对象
 - 像这个App中分类列表的单击交互，如果想要只有被单击选择的HTML元素有 高亮，那么在绑定单击事件来响应单击选择的时候，记得先清除所有同类HTML元素的 高亮
 
 #### JQuery中 this 和 $("this")有区别：
@@ -77,7 +98,20 @@ $('a').click(function(){
 ### HTML+CSS
 
 - [CSS命名惯例语义化](http://blog.bingo929.com/CSS-coding-semantic-naming.html)
-- 虽然DOM结构是由js代码渲染的，在HTML留下一些**模板**方便参考和编写代码
+- 把需要的li全都设成了``cursor:pointer``
+- 虽然DOM结构是由js代码渲染的，在HTML留下一些**template**方便参考和编写代码
+- 将颜色抽象成单独的class，方便更换颜色：
+
+```
+.white-bg {background: #FFFFCC;}
+.black-bg {background: #3F3A39;}
+.green-bg {background: #CFE8CC;}
+.blue-bg {background: #5D6684;}
+.grey-bg {background: #E9E9E9;}
+.lt-blue-bg {background: #DADADA;}
+```
+
+我认为，只有占**大块区域**的元素才用色彩的class来设置**背景颜色**。因为如果要上色的元素很多的话，或者元素会短时间内存在再消失的话，一个一个加class就很麻烦。
 
 ### JavaScript
 
@@ -121,7 +155,7 @@ function queryCateById(id) {
 
 ### 容易犯的错误
 
-- JQuery中使用id选择器返回的也是``元素数组``。
+- JQuery中使用id选择器返回的也是**元素数组**。
 
 ```
 console.log($("#modal-foot"))// 元素数组
