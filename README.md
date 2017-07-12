@@ -217,3 +217,15 @@ function queryCateById(id) {
 但是：
 
 如果用addNewTask作为函数名，肯定不够用addTask作为函数名好。
+
+## 发现的bug，找时间再fix
+
+1. 火狐浏览器不实现`<input type="date">`
+2. 实际上该应用没有做移动端的适配，所以手机横屏来看会好一点
+
+## 最后：
+
+>[color design](https://alexzhong22c.github.io/color-design-22c/color-design.html)：https://alexzhong22c.github.io/color-design-22c/color-design.html
+>
+>如果各位看官喜欢的话留一个Star吧！
+

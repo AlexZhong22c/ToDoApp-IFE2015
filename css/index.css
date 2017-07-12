@@ -30,6 +30,7 @@ body, button, input, textarea {
 body {
     min-width: 700px;
     min-height: 400px;
+    color: #3f3f3f;
 }
 select, input, textarea {
     border: none;
@@ -37,16 +38,23 @@ select, input, textarea {
 }
 
 /**
- * color
+ * old color
  */
 .white-bg {background: #FFFFCC;}
 .black-bg {background: #3F3A39;}
 .green-bg {background: #CFE8CC;}
 .blue-bg {background: #5D6684;}
 .grey-bg {background: #E9E9E9;}
-.lt-blue-bg {background: #DADADA;}
-
-
+.lt-grey-bg {background: #DADADA;}
+/**
+ * 日系风格背景颜色：(new)
+ */
+.qingci-bg {background: #69b0ac;}/*青瓷*/
+.liuran-bg {background: #91ad70;} /*柳染*/
+.ruozhu-bg {background: #5dac81;}/*若竹*/
+.bailv-bg {background: #a8d8b9;}/*白绿*/
+.qinglv-bg {background: #00aa90;}/*青绿*/
+.boqing-bg {background: #91b491;}/*薄青*/
 
 /**
  * header
@@ -106,7 +114,7 @@ h1 {
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.35);
 }
 .category .active {
-    background-color: #eee;
+    background-color: #a8d8b9;
 }
 .all-tasks {
     position: absolute;
@@ -118,6 +126,7 @@ h1 {
     padding-left: 15px;
     font-size: 16px;
     border-bottom: 1px dashed #A6A6A6;
+    box-sizing: border-box;
 }
 .cate-title {
     position: absolute;
@@ -127,6 +136,7 @@ h1 {
     padding-left: 15px;
     font-size: 16px;
     border-bottom: 1px dashed #A6A6A6;
+    box-sizing: border-box;
 }
 #cate-list {
     padding-left: 15px;
@@ -142,7 +152,7 @@ h1 {
     padding-left: 30px;
 }
 .list h2:hover, .list h3:hover {
-    background-color: #eee;
+    background-color: #a8d8b9;
 }
 .list h2:hover .fa-trash-o, .list h3:hover .fa-trash-o {
     display: inline-block;
@@ -178,7 +188,6 @@ h1 {
     left: 0;
     bottom: 0;
     font-size: 16px;
-    background-color: #CACACA;
     border: none;
     cursor: pointer;
     outline: none;
@@ -188,8 +197,8 @@ h1 {
     -o-transition: 0.2s ease;
 }
 .add:hover {
-    background-color: #C1C3DE;
-    color: #343521;
+    background-color: #B1CEB3;
+    color: #42602d;
 }
 
 /**
@@ -228,7 +237,6 @@ h1 {
     width: 60px;
     height: 30px;
     margin: 0 5px;
-    background-color: #DADADA;;
     border: none;
     cursor: pointer;
     outline: none;
@@ -236,6 +244,9 @@ h1 {
     -webkit-transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     -o-transition: 0.2s ease;
+
+    border-radius: 3px;
+    color: white;
 }
 .status button:hover {
 
@@ -243,14 +254,13 @@ h1 {
         -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
         -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.6); */
-    background-color: #A8AAC5;
-    color: #fff;
+    background-color: #5dac81;
+    color: white;
     /* 要写:*/
     cursor: pointer;
 }
 .status .active {
-    background-color: #A8AAC5;
-    color: #fff;
+    background-color: #5dac81;
     cursor: default;
 }
 .task-list {
@@ -264,7 +274,7 @@ h1 {
 }
 .task-list div {
     line-height: 2.3;
-    background-color: #BBBBCA;
+    background: #a1c4a1;
     padding-left: 10px; 
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;  
@@ -274,6 +284,9 @@ h1 {
     -moz-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
     -o-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3); */
+}
+.task-list div .fa-bars {
+  margin-right: 5px;
 }
 .task-list li {
 
@@ -292,7 +305,7 @@ h1 {
     width: 14px;
 }
 .task-list li:hover {
-    background-color: #FbFbFb;
+    background-color: #a8d8b9;
 }
 .task-list .fa-trash-o {
     display: none;
@@ -305,16 +318,15 @@ h1 {
     display: inline-block;
 }
 .task-list .active {
-    background-color: #FbFbFb;
+    background-color: #a8d8b9;
 }
 .task-done{
-    color: #24692B
+    color: #bb00ff;
 }
 .add-task {
     position: absolute;
     bottom: 0;
     width: 260px;
-    background-color: #D8D8D8;
 }
 .add-task i {
     margin-right: 5px;
@@ -335,7 +347,6 @@ h1 {
 .title {
     height: 55px;
     line-height: 55px;
-    background-color: #dadada;
     overflow: hidden;
     font-weight: bold;
     position: relative;
@@ -361,7 +372,6 @@ h1 {
 #task-date {
     height: 55px;
     line-height: 55px;
-    background-color: #eee;
     padding-left: 15px;
     position: relative;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -378,18 +388,22 @@ h1 {
 }
 .main input {
     font-size: 16px;
-    border: 1px solid #AEAEAE;
+    border: 1px solid #e9e9e9;
 }
 .main input:focus {
-    border: 1px solid #404040;
+    border: 1px solid #e9e9e9;
 }
 .input-title {
     padding: 7px 10px;
     margin-top: 10px;
     width: 244px;
+
+    background: #5dac81;
 }
 .input-date {
     padding: 5px 10px;
+
+    background: #91b491;
 }
 .textarea-content {
     width: 100%;
@@ -407,21 +421,14 @@ h1 {
     right: 20px;
 }
 .button-area button {
-
-    /*background-color: #D8D8D8;*/
-
     border: none;
     cursor: pointer;
     outline: none;
     padding: 8px 20px;
     margin-left: 15px;
 }
-.info{
-    color: #B35690
-}
 .save {
-    background-color: #95A0D8;
-    color: #fff;
+    background-color: #69b0ac;
 }
 
 /**
@@ -445,8 +452,8 @@ h1 {
     height: 180px;
     padding: 15px;
     background-color: #eee;
-    margin-left: -160px;
-    margin-top: -90px;
+    margin-left: -170px;
+    margin-top: -80px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -466,9 +473,9 @@ h1 {
 
     /*background-color: #aaa;*/
     margin-top: 6px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-left: 30px;
-    line-height: 2.2;
+    line-height: 2.4;
     border-top: 1px dashed #C6CAE0;
 }
 .modal-body select, .modal-body input {
@@ -486,7 +493,7 @@ h1 {
     padding-right: 20px;
 }
 #modal-foot button {
-    background-color: #D8D8D8;
+    background-color: #69b0ac;
     border: none;
     cursor: pointer;
     outline: none;
@@ -496,10 +503,12 @@ h1 {
     -webkit-transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     -o-transition: 0.2s ease;
+
+    border-radius: 3px;
 }
 #modal-foot button:hover {
-    background-color: #A8AAC5;
-    color: #fff;
+    background-color: #B1CEB3;
+    color: #42602d;
 }
 
 .cover2 {

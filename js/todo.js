@@ -209,17 +209,22 @@ function prepareManipulate() {
     });
     $('.manipulate a:last').click(function(){
 
-    if (currentTaskId != 0) {
-       $("#todo-name").html('<input type="text" class="input-title" placeholder="请输入标题">'); 
-    }
-    // 和点击add task button后的效果基本相同,
-    $(".manipulate").css('display' ,"none");
-    $("#task-date span").html('<input type="date" class="input-date">');
-    $("#content").html('<textarea class="textarea-content" placeholder="请输入任务内容"></textarea>');
-    $(".button-area").html('<span class="info"></span>                    <button class="save">保存</button>                    <button class="cancel-save">放弃</button>');
-    $(".button-area").css('display',"block");
-    prepareSaveOrCancelWhenModifyTask(); // 和prepareSaveOrCancelWhenAddTask()基本相同
+        if (currentTaskId != 0) {
+           $("#todo-name").html('<input type="text" class="input-title" placeholder="请输入标题">');
+        }
+        // 和点击add task button后的效果基本相同,
+        $(".manipulate").css('display' ,"none");
+        $("#task-date span").html('<input type="date" class="input-date">');
+        $("#content").html('<textarea class="textarea-content" placeholder="请输入任务内容"></textarea>');
+        $(".button-area").html('<span class="info"></span>                    <button class="save">保存</button>                    <button class="cancel-save">放弃</button>');
+        $(".button-area").css('display',"block");
+        prepareSaveOrCancelWhenModifyTask(); // 和prepareSaveOrCancelWhenAddTask()基本相同
 
+        $('.cover2').css('display',"block");
+        $('.cover2').one("click",function(){
+            $('.cover2').css('display',"none");
+            $('.cancel-save').trigger("click");
+        });
     });
 }
 function initMain() {
@@ -250,7 +255,7 @@ function refreshTaskListByChildCateId(childCateId) {
     var tempStr = "";
     for (var j = 0; j < dateArr.length; j++) {
         var tempTasks = queryTasksByDateInTaskArr(dateArr[j], TasksInChildCate);
-        var tempStr = tempStr + '<div>'+ dateArr[j] +'</div>'; 
+        var tempStr = tempStr + '<div><i class="fa fa-bars"></i>'+ dateArr[j] +'</div>'; 
         var liStr = "";
         for (var k = 0; k < tempTasks.length; k++) {
             if (tempTasks[k].finished == true) {
@@ -387,6 +392,7 @@ function prepareSaveOrCancelWhenModifyTask() {
 
             $(".button-area").css('display',"none");
             $(".manipulate").css('display' ,"block");
+            $('.cover2').trigger("click");
 
             refreshMainByTaskId(currentTaskId);
             refreshTaskListAndActiveThisTask(currentTaskId);
@@ -396,6 +402,7 @@ function prepareSaveOrCancelWhenModifyTask() {
         refreshMainByTaskId(currentTaskId);
         $(".button-area").css('display',"none");
         $(".manipulate").css('display' ,"block");
+        $('.cover2').trigger("click");
     });
 }
 function prepareSaveOrCancelWhenAddTask() {
@@ -454,7 +461,7 @@ function refreshTaskListAndActiveThisTask(taskId) {
     var tempStr = "";
     for (var j = 0; j < dateArr.length; j++) {
         var tempTasks = queryTasksByDateInTaskArr(dateArr[j], TasksInChildCate);
-        var tempStr = tempStr + '<div>'+ dateArr[j] +'</div>'; 
+        var tempStr = tempStr + '<div><i class="fa fa-bars"></i>'+ dateArr[j] +'</div>'; 
         var liStr = "";
         for (var k = 0; k < tempTasks.length; k++) {
             if (tempTasks[k].finished == true) {
