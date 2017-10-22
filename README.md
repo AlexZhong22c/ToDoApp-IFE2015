@@ -7,6 +7,8 @@
 
 在线预览：https://alexzhong22c.github.io/ToDoApp-IFE2015/
 
+另新增了 [升级版](https://alexzhong22c.github.io/ToDo-WebApp/index.html) 修复了一些bug，并且适配移动端：https://github.com/AlexZhong22c/ToDo-WebApp
+
 ## 知识收获
 
 ### 自适应高度布局
