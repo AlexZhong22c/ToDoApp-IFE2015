@@ -223,7 +223,6 @@ function queryCateById(id) {
 ## 发现的bug，找时间再fix
 
 1. 火狐浏览器不实现`<input type="date">`
-2. 实际上该应用没有做移动端的适配，所以手机横屏来看会好一点
 
 ## 最后：
 
